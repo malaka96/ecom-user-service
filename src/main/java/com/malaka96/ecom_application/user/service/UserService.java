@@ -25,7 +25,7 @@ public class UserService {
                 .toList();
     }
 
-    public Optional<UserResponse> getUser(Long id) {
+    public Optional<UserResponse> getUser(String id) {
         return userRepository.findById(id)
                 .map(this::mapToUserResponse);
     }
@@ -35,7 +35,7 @@ public class UserService {
     }
 
 
-    public Boolean updateUser(Long id, UserRequest updatedUser) {
+    public Boolean updateUser(String id, UserRequest updatedUser) {
         return userRepository.findById(id)
                 .map(existingUser -> {
                     existingUser
